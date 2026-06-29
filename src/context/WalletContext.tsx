@@ -29,42 +29,20 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
     setIsLoading(true);
     setError(null);
     try {
-      await kit.openModal({
-        onWalletSelected: async (option) => {
-          try {
-            kit.setWallet(option.id);
-            const { address } = await kit.getAddress();
-            setPublicKey(address);
-            setWalletName(option.name);
-            setIsConnected(true);
-          } catch (innerErr: any) {
-            const msg = (innerErr?.message || "").toLowerCase();
-            if (msg.includes("not installed") || msg.includes("not found") || msg.includes("undefined")) {
-              setError(`${option.name} is not installed. Please install the extension and try again.`);
-            } else if (
-              msg.includes("declined") ||
-              msg.includes("rejected") ||
-              msg.includes("cancel") ||
-              msg.includes("user denied")
-            ) {
-              setError("Connection was rejected. Please approve the connection in your wallet.");
-            } else {
-              setError(innerErr.message || "Failed to connect wallet.");
-            }
-          }
-        },
-        onClosed: () => {
-          setIsLoading(false);
-        },
-      });
+      const { address } = await kit.authModal();
+      setPublicKey(address);
+      setWalletName(kit.selectedModule.productName);
+      setIsConnected(true);
     } catch (err: any) {
       const msg = (err?.message || "").toLowerCase();
       if (msg.includes("not installed") || msg.includes("not found")) {
         setError("Wallet extension not installed. Please install Freighter or another supported wallet.");
-      } else if (msg.includes("declined") || msg.includes("rejected") || msg.includes("cancel")) {
-        setError("Connection was rejected. Please try again and approve the request in your wallet.");
+      } else if (msg.includes("declined") || msg.includes("rejected") || msg.includes("cancel") || msg.includes("closed")) {
+        setError("Connection was rejected or modal was closed. Please try again.");
       } else if (msg) {
         setError(err.message);
+      } else {
+        setError("Failed to connect wallet.");
       }
     } finally {
       setIsLoading(false);
