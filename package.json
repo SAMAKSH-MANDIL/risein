@@ -1,0 +1,33 @@
+{
+  "name": "stellar-white-belt",
+  "version": "1.0.0",
+  "description": "Stellar Journey to Mastery — White Belt Challenge: Wallet creation, balance retrieval, and first on-chain transaction",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "wallet:create": "ts-node src/scripts/createWallet.ts",
+    "wallet:balance": "ts-node src/scripts/checkBalance.ts",
+    "wallet:fund": "ts-node src/scripts/fundWallet.ts",
+    "transaction:send": "ts-node src/scripts/sendTransaction.ts",
+    "demo": "ts-node src/scripts/demo.ts"
+  },
+  "keywords": [
+    "stellar",
+    "blockchain",
+    "white-belt",
+    "risein"
+  ],
+  "author": "SAMAKSH-MANDIL",
+  "license": "MIT",
+  "dependencies": {
+    "@stellar/stellar-sdk": "^16.0.1",
+    "dotenv": "^17.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}
