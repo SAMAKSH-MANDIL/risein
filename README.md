@@ -11,8 +11,8 @@ Submitted for both **White Belt** and **Orange Belt** in the [RiseIn Stellar Jou
 |---|---|
 | 🌐 **Live Demo** | [Deploy to Vercel — see instructions below](#-deployment) |
 | 📦 **GitHub** | [github.com/SAMAKSH-MANDIL/risein](https://github.com/SAMAKSH-MANDIL/risein) |
-| 📜 **Smart Contract (Testnet)** | `CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2KM` *(update after deploy)* |
-| 🔁 **Sample TX Hash** | *(update after first successful contract call)* |
+| 📜 **Smart Contract (Testnet)** | [CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2KM](https://stellar.expert/explorer/testnet/contract/CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2KM) *(update after deploy)* |
+| 🔁 **Sample TX Hash** | [View on Stellar Expert](https://stellar.expert/explorer/testnet/tx/YOUR_TX_HASH) *(update after first successful contract call)* |
 
 ---
 
