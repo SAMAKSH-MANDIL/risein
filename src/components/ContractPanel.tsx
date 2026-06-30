@@ -107,7 +107,20 @@ export default function ContractPanel() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left: Config + State */}
         <div>
-          <label className="block text-sm font-medium text-slate-300 mb-1">Contract ID</label>
+          <div className="flex justify-between items-center mb-1">
+            <label className="block text-sm font-medium text-slate-300">Contract ID</label>
+            {isValidContractId && (
+              <a
+                href={`https://stellar.expert/explorer/testnet/contract/${contractId}`}
+                target="_blank"
+                rel="noreferrer"
+                className="text-xs text-stellar-400 hover:text-stellar-300 flex items-center gap-1 transition-colors"
+                title="Verify contract on Stellar Expert"
+              >
+                Verify on Explorer <ExternalLink className="w-3 h-3" />
+              </a>
+            )}
+          </div>
           <input
             id="contract-id-input"
             type="text"
